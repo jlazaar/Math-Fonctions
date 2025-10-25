@@ -79,8 +79,8 @@ L'explorateur permet de manipuler en temps réel les paramètres de 4 types de f
 
 1. Clonez ce dépôt :
 ```bash
-git clone https://github.com/VOTRE-USERNAME/Math-1.git
-cd Math-1
+git clone https://github.com/jlazaar/Math-Fonctions.git
+cd Math-Fonctions
 ```
 
 2. Ouvrez `index.html` dans votre navigateur web préféré
@@ -91,7 +91,7 @@ Aucune installation de dépendances n'est nécessaire ! L'application fonctionne
 
 1. Allez dans les paramètres de votre dépôt GitHub
 2. Dans la section "Pages", sélectionnez la branche `main` comme source
-3. Votre site sera disponible à l'adresse : `https://VOTRE-USERNAME.github.io/Math-1/`
+3. Votre site sera disponible à l'adresse : `https://jlazaar.github.io/Math-Fonctions/`
 
 ## 🛠️ Technologies Utilisées
 
