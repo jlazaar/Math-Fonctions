@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercices - Paramètres de Fonctions</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="exercises.css">
+</head>
+<body>
+    <header>
+        <h1>📝 Exercices sur les Paramètres de Fonctions</h1>
+        <p>Testez vos connaissances avec ces exercices interactifs</p>
+        <nav class="nav-buttons">
+            <a href="index.html" class="btn-nav">← Retour à l'explorateur</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Score Board -->
+        <section class="score-board">
+            <div class="score-item">
+                <span class="score-label">Score Total:</span>
+                <span class="score-value" id="total-score">0</span>
+            </div>
+            <div class="score-item">
+                <span class="score-label">Exercices réussis:</span>
+                <span class="score-value" id="completed-count">0</span>
+            </div>
+            <button class="btn-reset" onclick="resetAllExercises()">Réinitialiser tout</button>
+        </section>
+
+        <!-- Exercice 1: Identifier les paramètres -->
+        <section class="exercise-section">
+            <div class="exercise-header">
+                <h2>Exercice 1: Identifier les paramètres</h2>
+                <span class="difficulty easy">Facile</span>
+            </div>
+            <div class="exercise-content">
+                <p class="question">Quelle est la valeur des paramètres a et b dans la fonction linéaire suivante?</p>
+                <div class="function-display">f(x) = <span id="ex1-function">3x - 5</span></div>
+
+                <div class="answer-section">
+                    <div class="input-group">
+                        <label>a = </label>
+                        <input type="number" id="ex1-a" step="0.1" placeholder="?">
+                    </div>
+                    <div class="input-group">
+                        <label>b = </label>
+                        <input type="number" id="ex1-b" step="0.1" placeholder="?">
+                    </div>
+                </div>
+
+                <button class="btn-check" onclick="checkExercise1()">Vérifier</button>
+                <button class="btn-hint" onclick="showHint('ex1-hint')">💡 Indice</button>
+                <button class="btn-new" onclick="generateExercise1()">Nouvelle question</button>
+
+                <div id="ex1-hint" class="hint hidden">
+                    La forme générale est f(x) = ax + b, où a est le coefficient de x et b est la constante.
+                </div>
+                <div id="ex1-feedback" class="feedback"></div>
+            </div>
+        </section>
+
+        <!-- Exercice 2: Trouver le sommet d'une parabole -->
+        <section class="exercise-section">
+            <div class="exercise-header">
+                <h2>Exercice 2: Sommet de la parabole</h2>
+                <span class="difficulty easy">Facile</span>
+            </div>
+            <div class="exercise-content">
+                <p class="question">Quelles sont les coordonnées du sommet de cette parabole?</p>
+                <div class="function-display">f(x) = <span id="ex2-function">(x - 2)² + 3</span></div>
+
+                <div class="answer-section">
+                    <div class="input-group">
+                        <label>h (coordonnée x) = </label>
+                        <input type="number" id="ex2-h" step="0.5" placeholder="?">
+                    </div>
+                    <div class="input-group">
+                        <label>k (coordonnée y) = </label>
+                        <input type="number" id="ex2-k" step="0.5" placeholder="?">
+                    </div>
+                </div>
+
+                <button class="btn-check" onclick="checkExercise2()">Vérifier</button>
+                <button class="btn-hint" onclick="showHint('ex2-hint')">💡 Indice</button>
+                <button class="btn-new" onclick="generateExercise2()">Nouvelle question</button>
+
+                <div id="ex2-hint" class="hint hidden">
+                    Dans la forme f(x) = a(x - h)² + k, le sommet est au point (h, k).
+                </div>
+                <div id="ex2-feedback" class="feedback"></div>
+            </div>
+        </section>
+
+        <!-- Exercice 3: Effet des paramètres -->
+        <section class="exercise-section">
+            <div class="exercise-header">
+                <h2>Exercice 3: Choix multiple - Effet des paramètres</h2>
+                <span class="difficulty medium">Moyen</span>
+            </div>
+            <div class="exercise-content">
+                <p class="question" id="ex3-question">Si on augmente le paramètre 'a' dans f(x) = ax + b, que se passe-t-il?</p>
+
+                <div class="options-container">
+                    <div class="option" onclick="selectOption(3, 0)">
+                        <input type="radio" name="ex3" id="ex3-opt0">
+                        <label for="ex3-opt0" id="ex3-label0">La droite devient plus raide</label>
+                    </div>
+                    <div class="option" onclick="selectOption(3, 1)">
+                        <input type="radio" name="ex3" id="ex3-opt1">
+                        <label for="ex3-opt1" id="ex3-label1">La droite se déplace vers le haut</label>
+                    </div>
+                    <div class="option" onclick="selectOption(3, 2)">
+                        <input type="radio" name="ex3" id="ex3-opt2">
+                        <label for="ex3-opt2" id="ex3-label2">La droite se déplace vers la droite</label>
+                    </div>
+                    <div class="option" onclick="selectOption(3, 3)">
+                        <input type="radio" name="ex3" id="ex3-opt3">
+                        <label for="ex3-opt3" id="ex3-label3">Aucun changement</label>
+                    </div>
+                </div>
+
+                <button class="btn-check" onclick="checkExercise3()">Vérifier</button>
+                <button class="btn-hint" onclick="showHint('ex3-hint')">💡 Indice</button>
+                <button class="btn-new" onclick="generateExercise3()">Nouvelle question</button>
+
+                <div id="ex3-hint" class="hint hidden"></div>
+                <div id="ex3-feedback" class="feedback"></div>
+            </div>
+        </section>
+
+        <!-- Exercice 4: Correspondance graphique -->
+        <section class="exercise-section">
+            <div class="exercise-header">
+                <h2>Exercice 4: Associer fonction et graphique</h2>
+                <span class="difficulty medium">Moyen</span>
+            </div>
+            <div class="exercise-content">
+                <p class="question">Quelle fonction correspond au graphique affiché?</p>
+
+                <div class="graph-container-small">
+                    <canvas id="ex4-graph"></canvas>
+                </div>
+
+                <div class="options-container">
+                    <div class="option" onclick="selectOption(4, 0)">
+                        <input type="radio" name="ex4" id="ex4-opt0">
+                        <label for="ex4-opt0" id="ex4-label0">f(x) = x² + 2</label>
+                    </div>
+                    <div class="option" onclick="selectOption(4, 1)">
+                        <input type="radio" name="ex4" id="ex4-opt1">
+                        <label for="ex4-opt1" id="ex4-label1">f(x) = -x² + 2</label>
+                    </div>
+                    <div class="option" onclick="selectOption(4, 2)">
+                        <input type="radio" name="ex4" id="ex4-opt2">
+                        <label for="ex4-opt2" id="ex4-label2">f(x) = (x - 2)²</label>
+                    </div>
+                    <div class="option" onclick="selectOption(4, 3)">
+                        <input type="radio" name="ex4" id="ex4-opt3">
+                        <label for="ex4-opt3" id="ex4-label3">f(x) = 2x²</label>
+                    </div>
+                </div>
+
+                <button class="btn-check" onclick="checkExercise4()">Vérifier</button>
+                <button class="btn-hint" onclick="showHint('ex4-hint')">💡 Indice</button>
+                <button class="btn-new" onclick="generateExercise4()">Nouvelle question</button>
+
+                <div id="ex4-hint" class="hint hidden">
+                    Regardez la position du sommet et si la parabole s'ouvre vers le haut ou le bas.
+                </div>
+                <div id="ex4-feedback" class="feedback"></div>
+            </div>
+        </section>
+
+        <!-- Exercice 5: Calculer la période -->
+        <section class="exercise-section">
+            <div class="exercise-header">
+                <h2>Exercice 5: Période d'une fonction trigonométrique</h2>
+                <span class="difficulty hard">Difficile</span>
+            </div>
+            <div class="exercise-content">
+                <p class="question">Quelle est la période de cette fonction sinusoïdale?</p>
+                <div class="function-display">f(x) = <span id="ex5-function">3 sin(2x)</span></div>
+
+                <div class="answer-section">
+                    <div class="input-group">
+                        <label>Période = </label>
+                        <input type="number" id="ex5-period" step="0.01" placeholder="?">
+                        <span class="unit">radians</span>
+                    </div>
+                </div>
+
+                <button class="btn-check" onclick="checkExercise5()">Vérifier</button>
+                <button class="btn-hint" onclick="showHint('ex5-hint')">💡 Indice</button>
+                <button class="btn-new" onclick="generateExercise5()">Nouvelle question</button>
+
+                <div id="ex5-hint" class="hint hidden">
+                    La période d'une fonction sin(bx) est 2π/|b|. L'amplitude n'affecte pas la période.
+                </div>
+                <div id="ex5-feedback" class="feedback"></div>
+            </div>
+        </section>
+
+        <!-- Exercice 6: Construction de fonction -->
+        <section class="exercise-section">
+            <div class="exercise-header">
+                <h2>Exercice 6: Construire une fonction</h2>
+                <span class="difficulty hard">Difficile</span>
+            </div>
+            <div class="exercise-content">
+                <p class="question" id="ex6-question">Écrivez une fonction quadratique avec sommet en (2, -3) et qui s'ouvre vers le bas.</p>
+
+                <div class="answer-section">
+                    <div class="input-group">
+                        <label>a = </label>
+                        <input type="number" id="ex6-a" step="0.1" placeholder="?">
+                    </div>
+                    <div class="input-group">
+                        <label>h = </label>
+                        <input type="number" id="ex6-h" step="0.5" placeholder="?">
+                    </div>
+                    <div class="input-group">
+                        <label>k = </label>
+                        <input type="number" id="ex6-k" step="0.5" placeholder="?">
+                    </div>
+                </div>
+
+                <div class="function-preview">
+                    <strong>Votre fonction:</strong>
+                    <span id="ex6-preview">f(x) = a(x - h)² + k</span>
+                </div>
+
+                <button class="btn-check" onclick="checkExercise6()">Vérifier</button>
+                <button class="btn-hint" onclick="showHint('ex6-hint')">💡 Indice</button>
+                <button class="btn-new" onclick="generateExercise6()">Nouvelle question</button>
+
+                <div id="ex6-hint" class="hint hidden">
+                    Pour s'ouvrir vers le bas, a doit être négatif. Le sommet (h, k) vous donne directement h et k.
+                </div>
+                <div id="ex6-feedback" class="feedback"></div>
+            </div>
+        </section>
+
+        <!-- Exercice 7: Transformation interactive -->
+        <section class="exercise-section">
+            <div class="exercise-header">
+                <h2>Exercice 7: Transformer la fonction cible</h2>
+                <span class="difficulty medium">Moyen</span>
+            </div>
+            <div class="exercise-content">
+                <p class="question">Ajustez les paramètres pour faire correspondre votre courbe (bleue) avec la courbe cible (rouge en pointillés).</p>
+
+                <div class="graph-container-small">
+                    <canvas id="ex7-graph"></canvas>
+                </div>
+
+                <div class="controls-compact">
+                    <div class="control-group">
+                        <label>a: <span id="ex7-a-value">1</span></label>
+                        <input type="range" id="ex7-a" min="-3" max="3" step="0.1" value="1">
+                    </div>
+                    <div class="control-group">
+                        <label>h: <span id="ex7-h-value">0</span></label>
+                        <input type="range" id="ex7-h" min="-5" max="5" step="0.5" value="0">
+                    </div>
+                    <div class="control-group">
+                        <label>k: <span id="ex7-k-value">0</span></label>
+                        <input type="range" id="ex7-k" min="-5" max="5" step="0.5" value="0">
+                    </div>
+                </div>
+
+                <button class="btn-check" onclick="checkExercise7()">Vérifier</button>
+                <button class="btn-new" onclick="generateExercise7()">Nouvelle cible</button>
+
+                <div id="ex7-feedback" class="feedback"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>🎓 Continuez à pratiquer pour maîtriser les paramètres de fonctions!</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="exercises.js"></script>
+</body>
+</html>

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explorateur de Fonctions Mathématiques</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>🔢 Explorateur Interactif de Fonctions Mathématiques</h1>
+        <p>Découvrez comment les paramètres influencent les courbes des fonctions</p>
+        <nav class="nav-buttons">
+            <a href="exercises.html" class="btn-nav">📝 Faire les exercices →</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Introduction Générale -->
+        <section class="intro-section">
+            <h2>📚 Introduction aux Paramètres de Fonctions</h2>
+            <div class="explanation">
+                <p>Une fonction mathématique est une relation qui associe à chaque valeur d'entrée (x) une valeur de sortie (y).
+                Les <strong>paramètres</strong> sont des valeurs qui modifient le comportement de la fonction sans changer sa forme générale.</p>
+
+                <h3>Effets principaux des paramètres :</h3>
+                <ul>
+                    <li><strong>a</strong> - Dilatation verticale et réflexion (étirement/compression)</li>
+                    <li><strong>b</strong> - Dilatation horizontale (compression/étirement)</li>
+                    <li><strong>h</strong> - Translation horizontale (déplacement gauche/droite)</li>
+                    <li><strong>k</strong> - Translation verticale (déplacement haut/bas)</li>
+                </ul>
+
+                <div class="formula-box">
+                    <strong>Forme canonique générale :</strong> f(x) = a · g(b(x - h)) + k
+                </div>
+            </div>
+        </section>
+
+        <!-- Fonctions Linéaires -->
+        <section class="function-section">
+            <h2>📈 Fonctions Linéaires</h2>
+            <div class="content-grid">
+                <div class="controls">
+                    <h3>f(x) = ax + b</h3>
+                    <div class="explanation-box">
+                        <p><strong>a (pente) :</strong> Détermine l'inclinaison de la droite</p>
+                        <p><strong>b (ordonnée à l'origine) :</strong> Point d'intersection avec l'axe y</p>
+                    </div>
+
+                    <div class="control-group">
+                        <label for="linear-a">
+                            Paramètre a (pente) : <span id="linear-a-value">1</span>
+                        </label>
+                        <input type="range" id="linear-a" min="-5" max="5" step="0.1" value="1">
+                    </div>
+
+                    <div class="control-group">
+                        <label for="linear-b">
+                            Paramètre b (ordonnée) : <span id="linear-b-value">0</span>
+                        </label>
+                        <input type="range" id="linear-b" min="-10" max="10" step="0.5" value="0">
+                    </div>
+
+                    <div class="equation-display">
+                        <strong>Équation actuelle :</strong>
+                        <div class="equation">f(x) = <span id="linear-eq">1x + 0</span></div>
+                    </div>
+                </div>
+
+                <div class="graph-container">
+                    <canvas id="linear-graph"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- Fonctions Quadratiques -->
+        <section class="function-section">
+            <h2>📊 Fonctions Quadratiques</h2>
+            <div class="content-grid">
+                <div class="controls">
+                    <h3>f(x) = a(x - h)² + k</h3>
+                    <div class="explanation-box">
+                        <p><strong>a :</strong> Contrôle l'ouverture (a > 0 : vers le haut, a < 0 : vers le bas)</p>
+                        <p><strong>h :</strong> Translation horizontale du sommet</p>
+                        <p><strong>k :</strong> Translation verticale du sommet</p>
+                    </div>
+
+                    <div class="control-group">
+                        <label for="quad-a">
+                            Paramètre a (ouverture) : <span id="quad-a-value">1</span>
+                        </label>
+                        <input type="range" id="quad-a" min="-3" max="3" step="0.1" value="1">
+                    </div>
+
+                    <div class="control-group">
+                        <label for="quad-h">
+                            Paramètre h (translation X) : <span id="quad-h-value">0</span>
+                        </label>
+                        <input type="range" id="quad-h" min="-5" max="5" step="0.5" value="0">
+                    </div>
+
+                    <div class="control-group">
+                        <label for="quad-k">
+                            Paramètre k (translation Y) : <span id="quad-k-value">0</span>
+                        </label>
+                        <input type="range" id="quad-k" min="-10" max="10" step="0.5" value="0">
+                    </div>
+
+                    <div class="equation-display">
+                        <strong>Équation actuelle :</strong>
+                        <div class="equation">f(x) = <span id="quad-eq">1(x - 0)² + 0</span></div>
+                        <div class="vertex">Sommet : (<span id="quad-vertex">0, 0</span>)</div>
+                    </div>
+                </div>
+
+                <div class="graph-container">
+                    <canvas id="quad-graph"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- Fonctions Exponentielles -->
+        <section class="function-section">
+            <h2>📉 Fonctions Exponentielles</h2>
+            <div class="content-grid">
+                <div class="controls">
+                    <h3>f(x) = a · b^(x - h) + k</h3>
+                    <div class="explanation-box">
+                        <p><strong>a :</strong> Dilatation verticale</p>
+                        <p><strong>b :</strong> Base (b > 1 : croissance, 0 < b < 1 : décroissance)</p>
+                        <p><strong>h :</strong> Translation horizontale</p>
+                        <p><strong>k :</strong> Asymptote horizontale</p>
+                    </div>
+
+                    <div class="control-group">
+                        <label for="exp-a">
+                            Paramètre a : <span id="exp-a-value">1</span>
+                        </label>
+                        <input type="range" id="exp-a" min="-3" max="3" step="0.1" value="1">
+                    </div>
+
+                    <div class="control-group">
+                        <label for="exp-b">
+                            Paramètre b (base) : <span id="exp-b-value">2</span>
+                        </label>
+                        <input type="range" id="exp-b" min="0.1" max="3" step="0.1" value="2">
+                    </div>
+
+                    <div class="control-group">
+                        <label for="exp-h">
+                            Paramètre h : <span id="exp-h-value">0</span>
+                        </label>
+                        <input type="range" id="exp-h" min="-5" max="5" step="0.5" value="0">
+                    </div>
+
+                    <div class="control-group">
+                        <label for="exp-k">
+                            Paramètre k : <span id="exp-k-value">0</span>
+                        </label>
+                        <input type="range" id="exp-k" min="-5" max="5" step="0.5" value="0">
+                    </div>
+
+                    <div class="equation-display">
+                        <strong>Équation actuelle :</strong>
+                        <div class="equation">f(x) = <span id="exp-eq">1 · 2^(x - 0) + 0</span></div>
+                    </div>
+                </div>
+
+                <div class="graph-container">
+                    <canvas id="exp-graph"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- Fonctions Trigonométriques -->
+        <section class="function-section">
+            <h2>🌊 Fonctions Trigonométriques (Sinus)</h2>
+            <div class="content-grid">
+                <div class="controls">
+                    <h3>f(x) = a · sin(b(x - h)) + k</h3>
+                    <div class="explanation-box">
+                        <p><strong>a :</strong> Amplitude (hauteur de l'onde)</p>
+                        <p><strong>b :</strong> Fréquence (nombre d'oscillations)</p>
+                        <p><strong>h :</strong> Déphasage horizontal</p>
+                        <p><strong>k :</strong> Translation verticale (ligne d'équilibre)</p>
+                    </div>
+
+                    <div class="control-group">
+                        <label for="trig-a">
+                            Paramètre a (amplitude) : <span id="trig-a-value">1</span>
+                        </label>
+                        <input type="range" id="trig-a" min="-5" max="5" step="0.1" value="1">
+                    </div>
+
+                    <div class="control-group">
+                        <label for="trig-b">
+                            Paramètre b (fréquence) : <span id="trig-b-value">1</span>
+                        </label>
+                        <input type="range" id="trig-b" min="0.1" max="5" step="0.1" value="1">
+                    </div>
+
+                    <div class="control-group">
+                        <label for="trig-h">
+                            Paramètre h (déphasage) : <span id="trig-h-value">0</span>
+                        </label>
+                        <input type="range" id="trig-h" min="-3.14" max="3.14" step="0.1" value="0">
+                    </div>
+
+                    <div class="control-group">
+                        <label for="trig-k">
+                            Paramètre k (translation Y) : <span id="trig-k-value">0</span>
+                        </label>
+                        <input type="range" id="trig-k" min="-5" max="5" step="0.5" value="0">
+                    </div>
+
+                    <div class="equation-display">
+                        <strong>Équation actuelle :</strong>
+                        <div class="equation">f(x) = <span id="trig-eq">1 · sin(1(x - 0)) + 0</span></div>
+                        <div class="period">Période : <span id="trig-period">2π</span></div>
+                    </div>
+                </div>
+
+                <div class="graph-container">
+                    <canvas id="trig-graph"></canvas>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>🎓 Application éducative - Explorez et comprenez les fonctions mathématiques</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
